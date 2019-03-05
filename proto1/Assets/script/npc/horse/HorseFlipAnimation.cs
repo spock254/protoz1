@@ -33,14 +33,14 @@ public class HorseFlipAnimation : MonoBehaviour
         if (other.CompareTag(player_collider.tag) && !left_collider.IsTouching(player_collider))
         {
             animator.SetBool("left", false);
-            Debug.Log("LEFT");
+            //Debug.Log("LEFT");
 
 
         }
         if (other.CompareTag(player_collider.tag) && !right_collider.IsTouching(player_collider))
         {
             animator.SetBool("right", false);
-            Debug.Log("RIGHT");
+            //Debug.Log("RIGHT");
 
         }
     }
