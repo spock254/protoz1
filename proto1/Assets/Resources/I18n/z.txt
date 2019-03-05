@@ -1,4 +1,0 @@
-name=CCC
-age=SS
-weight=DD
-gold=SA
