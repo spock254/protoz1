@@ -1,0 +1,4 @@
+Name=name
+Age=age
+Weight=weight
+Gold=glod

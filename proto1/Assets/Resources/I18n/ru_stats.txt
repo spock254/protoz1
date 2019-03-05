@@ -1,0 +1,5 @@
+Name=Имя
+Age=Возрост
+Weight=Вес
+Gold=Золото
+C=e
