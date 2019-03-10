@@ -15,6 +15,8 @@ public class Item : ScriptableObject
     {
         // Use the item
         // Something may happen
+        Debug.Log(name);
+        //DestroyImmediate(this,true);
     }
 
     // Call this method to remove the item from inventory

@@ -17,8 +17,8 @@ public class Inventory : MonoBehaviour
 
     #endregion
 
-    public delegate void OnItemChanged();
-    public OnItemChanged onItemChangedCallback;
+    //public delegate void OnItemChanged();
+    //public OnItemChanged onItemChangedCallback;
 
     public int space = 5;  // Amount of item spaces
 
@@ -33,19 +33,26 @@ public class Inventory : MonoBehaviour
     {
         if (item.showInInventory)
         {
-            if (items.Count >= space)
+            if (items.Count >= space && SetInNullElement() == -1)
             {
                 Debug.Log("Not enough room.");
                 return false;
             }
-
-            items.Add(item);
+            if (currentItemCount == items.Count - 1)
+            {
+                Debug.Log("d");
+                currentItemCount = SetInNullElement();
+                items.Insert(currentItemCount,item);
+            }
+            else
+                items.Add(item);
+            Debug.Log(currentItemCount);
             UIInventory.instance.AddToUiInventorySlot(item, currentItemCount);
             currentItemCount++;
-            
 
-            if (onItemChangedCallback != null)
-                onItemChangedCallback.Invoke();
+            
+            //if (onItemChangedCallback != null)
+            //   onItemChangedCallback.Invoke();
 
             return true;
         }
@@ -58,8 +65,18 @@ public class Inventory : MonoBehaviour
         items.Remove(item);
         currentItemCount--;
 
-        if (onItemChangedCallback != null)
-            onItemChangedCallback.Invoke();
+        //if (onItemChangedCallback != null)
+        //    onItemChangedCallback.Invoke();
     }
-
+    private int SetInNullElement()
+    {
+        int index = -1;
+        foreach (Item item in items)
+        {
+            index++;
+            if (item == null)
+                break;
+        }
+        return index;
+    }
 }

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System.Linq;
 
 public class UIInventory : MonoBehaviour
 {
@@ -11,18 +13,17 @@ public class UIInventory : MonoBehaviour
     // Start is called before the first frame update
     private Image[] sprites_items;
 
-
     public Sprite default_sprite;
     public Canvas inventory_container;
 
     // window slots data
     private Image[] window_slots;
 
-
+    public TextMeshProUGUI item_name;
 
     public EventSystem eventSystem;
     public GameObject selectedObject;
-    public int currentSlot = 0;
+    //public int currentSlot = 0;
     private bool buttonSelected;
 
     private void Awake()
@@ -52,7 +53,7 @@ public class UIInventory : MonoBehaviour
             .GetComponent<Image>();
         window_slots[4] = GameObject.FindGameObjectWithTag("window_slot_5")
             .GetComponent<Image>();
-
+        item_name.text = "Ds";
     }
 
 
@@ -64,16 +65,14 @@ public class UIInventory : MonoBehaviour
             inventory_container.enabled = !inventory_container.enabled;
         }
 
+        
         if (Input.GetAxisRaw("Horizontal") != 0 && buttonSelected == false && inventory_container.enabled)
         {
            // currentSlot += ()Input.GetAxisRaw("Horizontal");
             eventSystem.SetSelectedGameObject(selectedObject);
-            currentSlot = getSekectedSlotFromTag(eventSystem
-                .currentSelectedGameObject.tag);
-            
             buttonSelected = true;
+            
         }
-       
     }
     public void AddToUiInventorySlot(Item item,int currentItemCount)
     {
@@ -84,10 +83,19 @@ public class UIInventory : MonoBehaviour
     {
         buttonSelected = false;
     }
-    private int getSekectedSlotFromTag(string tag)
+
+
+
+    public void Click(int item_index)
     {
-        return Int32.Parse(tag.Substring(tag.Length - 1, 1));
+        if (Inventory.instance.items[item_index])
+        {
+            Inventory.instance.items[item_index].Use();
+            Inventory.instance.items[item_index] = null;
+            sprites_items[item_index].sprite = default_sprite;
+
+        }
+        
     }
-    public void Click1() { Debug.Log("Click_1"); }
-    public void Click2() { Debug.Log("Click_2"); }
+
 }
