@@ -9,6 +9,11 @@ TagManager:
   - slot_3
   - slot_4
   - slot_5
+  - window_slot_1
+  - window_slot_2
+  - window_slot_3
+  - window_slot_4
+  - window_slot_5
   layers:
   - Default
   - TransparentFX
