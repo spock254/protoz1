@@ -17,6 +17,7 @@ public class PlayerStats
         Gold = new Stat();
     }
 
+
     public void addAge(int age)
     {
         Age.StatValue += age;

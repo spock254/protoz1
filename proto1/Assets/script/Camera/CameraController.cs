@@ -5,25 +5,61 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
 
-    public Vector2 camPosition = Vector2.zero;
-    public Transform target;
+    public float interpVelocity;
 
-    public float smoothX = 0.3f;
-    public float smoothY = 0.3f;
+    public float minDistance;
 
-    public float offsetX = 10;
-    public float offsetY = 10;
+    public float followDistance;
 
-    private void FixedUpdate()
+    public GameObject target;
+
+    public Vector3 offset;
+
+    Vector3 targetPos;
+
+    // Use this for initialization
+
+    void Start()
     {
-        camPosition = new Vector2
-            (
-                  Mathf.SmoothStep(transform.position.x, target.transform.position.y, smoothX),
-                  Mathf.SmoothStep(transform.position.x, target.transform.position.y, smoothY)
-            );
+
+        targetPos = transform.position;
+
     }
-    private void LateUpdate()
+
+
+
+    // Update is called once per frame
+
+    void FixedUpdate()
     {
-        //transform.position = camPosition;
+
+        if (target)
+
+        {
+
+            Vector3 posNoZ = transform.position;
+
+            posNoZ.z = target.transform.position.z;
+
+
+
+            Vector3 targetDirection = (target.transform.position - posNoZ);
+
+
+
+            interpVelocity = targetDirection.magnitude * 5f;
+
+
+
+            targetPos = transform.position + (targetDirection.normalized * interpVelocity * Time.deltaTime);
+
+
+
+            transform.position = Vector3.Lerp(transform.position, targetPos + offset, 0.25f);
+
+
+
+        }
+
     }
 }

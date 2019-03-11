@@ -25,7 +25,7 @@ public class UIInventory : MonoBehaviour
     public GameObject selectedObject;
     //public int currentSlot = 0;
     private bool buttonSelected;
-    private bool inventoryActive = true;
+    private bool inventoryActive = false;
 
     private void Awake()
     {
@@ -55,6 +55,8 @@ public class UIInventory : MonoBehaviour
         window_slots[4] = GameObject.FindGameObjectWithTag("window_slot_5")
             .GetComponent<Image>();
         item_name.text = "Ds";
+
+        inventory_container.SetActive(false);
     }
 
 
@@ -63,16 +65,13 @@ public class UIInventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            //inventory_container.enabled = !inventory_container.enabled;
             inventoryActive = !inventoryActive;
-            Debug.Log(inventoryActive);
             inventory_container.SetActive(inventoryActive);
         }
 
         
         if (Input.GetAxisRaw("Horizontal") != 0 && buttonSelected == false && inventoryActive)
         {
-           // currentSlot += ()Input.GetAxisRaw("Horizontal");
             eventSystem.SetSelectedGameObject(selectedObject);
             buttonSelected = true;
             
