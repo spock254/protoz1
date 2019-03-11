@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemPickup : Interactable
 {
@@ -9,8 +10,10 @@ public class ItemPickup : Interactable
     public override void Interact()
     {
         base.Interact();
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
+        {
             PickUp();
+        }
     }
 
     // Pick up the item
@@ -20,5 +23,4 @@ public class ItemPickup : Interactable
         if(Inventory.instance.Add(item))   // Add to inventory
             Destroy(gameObject);    // Destroy item from scene
     }
-
 }

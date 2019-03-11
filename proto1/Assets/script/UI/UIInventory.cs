@@ -14,7 +14,7 @@ public class UIInventory : MonoBehaviour
     private Image[] sprites_items;
 
     public Sprite default_sprite;
-    public Canvas inventory_container;
+    public GameObject inventory_container;
 
     // window slots data
     private Image[] window_slots;
@@ -25,6 +25,7 @@ public class UIInventory : MonoBehaviour
     public GameObject selectedObject;
     //public int currentSlot = 0;
     private bool buttonSelected;
+    private bool inventoryActive = true;
 
     private void Awake()
     {
@@ -62,11 +63,14 @@ public class UIInventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            inventory_container.enabled = !inventory_container.enabled;
+            //inventory_container.enabled = !inventory_container.enabled;
+            inventoryActive = !inventoryActive;
+            Debug.Log(inventoryActive);
+            inventory_container.SetActive(inventoryActive);
         }
 
         
-        if (Input.GetAxisRaw("Horizontal") != 0 && buttonSelected == false && inventory_container.enabled)
+        if (Input.GetAxisRaw("Horizontal") != 0 && buttonSelected == false && inventoryActive)
         {
            // currentSlot += ()Input.GetAxisRaw("Horizontal");
             eventSystem.SetSelectedGameObject(selectedObject);
@@ -88,6 +92,7 @@ public class UIInventory : MonoBehaviour
 
     public void Click(int item_index)
     {
+        Debug.Log(item_index);
         if (Inventory.instance.items[item_index])
         {
             Inventory.instance.items[item_index].Use();
