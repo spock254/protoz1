@@ -27,6 +27,9 @@ public class UIInventory : MonoBehaviour
     private bool buttonSelected;
     private bool inventoryActive = false;
 
+    public Text actionButtonsText;
+    private const string ACTION_BUTTON_CONTENT = "E - use / X - drop"; 
+
     private void Awake()
     {
         instance = this; // Singleton
@@ -57,6 +60,7 @@ public class UIInventory : MonoBehaviour
         item_name.text = "Ds";
 
         inventory_container.SetActive(false);
+        actionButtonsText.text = "";
     }
 
 
@@ -82,24 +86,24 @@ public class UIInventory : MonoBehaviour
         sprites_items[currentItemCount].sprite = item.icon;
     }
 
-    private void OnDisable()
-    {
-        buttonSelected = false;
-    }
-
-
-
     public void Click(int item_index)
     {
         Debug.Log(item_index);
         if (Inventory.instance.items[item_index])
         {
-            Inventory.instance.items[item_index].Use();
-            Inventory.instance.items[item_index] = null;
-            sprites_items[item_index].sprite = default_sprite;
-
+                UseItem(item_index);
         }
         
+    }
+    private void UseItem(int item_index)
+    {
+        Inventory.instance.items[item_index].Use();
+        Inventory.instance.items[item_index] = null;
+        sprites_items[item_index].sprite = default_sprite;
+    }
+    private void DropItem(int item_index)
+    {
+
     }
 
 }
