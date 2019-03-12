@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class Inventory : MonoBehaviour
 {
@@ -33,28 +34,24 @@ public class Inventory : MonoBehaviour
     {
         if (item.showInInventory)
         {
-            if (items.Count >= space && SetInNullElement() == -1)
+            if (items.Count < space)
+            {
+                items.Add(item);
+                RemoveAllNullItems();
+                UIInventory.instance.CopyItemsToUIPanel(items);
+                Debug.Log(items.Count);
+                return true;
+            }
+            else if (items.Count >= space)
             {
                 Debug.Log("Not enough room.");
                 return false;
             }
-            if (currentItemCount == items.Count - 1)
-            {
-                Debug.Log("d");
-                currentItemCount = SetInNullElement();
-                items.Insert(currentItemCount,item);
-            }
-            else
-                items.Add(item);
-            Debug.Log(currentItemCount);
-            UIInventory.instance.AddToUiInventorySlot(item, currentItemCount);
-            currentItemCount++;
-
-            
-            //if (onItemChangedCallback != null)
-            //   onItemChangedCallback.Invoke();
-
-            return true;
+        }
+        else if (!item.showInInventory)
+        {
+            item.Use();
+            return false;
         }
         return false;        
     }
@@ -64,9 +61,12 @@ public class Inventory : MonoBehaviour
     {
         items.Remove(item);
         currentItemCount--;
-
-        //if (onItemChangedCallback != null)
-        //    onItemChangedCallback.Invoke();
+    }
+    public void RemoveByIndex(int index)
+    {
+        items[index] = null;
+        RemoveAllNullItems();
+        UIInventory.instance.CopyItemsToUIPanel(items);
     }
     private int SetInNullElement()
     {
@@ -78,5 +78,9 @@ public class Inventory : MonoBehaviour
                 break;
         }
         return index;
+    }
+    private void RemoveAllNullItems()
+    {
+        items.RemoveAll(x => x == null);
     }
 }

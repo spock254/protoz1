@@ -28,7 +28,8 @@ public class UIInventory : MonoBehaviour
     private bool inventoryActive = false;
 
     public Text actionButtonsText;
-    private const string ACTION_BUTTON_CONTENT = "E - use / X - drop"; 
+
+    private int current_tem_index;
 
     private void Awake()
     {
@@ -64,46 +65,106 @@ public class UIInventory : MonoBehaviour
     }
 
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
             inventoryActive = !inventoryActive;
             inventory_container.SetActive(inventoryActive);
+            PlayerMovements.isPlayerInputEnable = !PlayerMovements.isPlayerInputEnable; ;
         }
 
-        
         if (Input.GetAxisRaw("Horizontal") != 0 && buttonSelected == false && inventoryActive)
         {
             eventSystem.SetSelectedGameObject(selectedObject);
             buttonSelected = true;
+        }
+
+        #region player action item menu
+        // if item is usable, opening 2 actions
+        if (actionButtonsText.text.Equals(UIContent.ACTION_BUTTON_CONTENT_USE_DROP))
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Inventory.instance.items[current_tem_index].Use();
+                DeleteWhenItemUsed(current_tem_index);
+                actionButtonsText.text = "";
+                eventSystem.SetSelectedGameObject(selectedObject);
+            }
+            else if (Input.GetKeyDown(KeyCode.X))
+            {
+                Inventory.instance.items[current_tem_index].Drop();
+                DeleteWhenItemUsed(current_tem_index);
+                actionButtonsText.text = "";
+                eventSystem.SetSelectedGameObject(selectedObject);
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                actionButtonsText.text = "";
+                eventSystem.SetSelectedGameObject(selectedObject);
+            }
             
         }
+        // if item dropable opening 1 action
+        else if (actionButtonsText.text.Equals(UIContent.ACTION_BUTTON_CONTENT_DROP))
+        {
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                Inventory.instance.items[current_tem_index].Drop();
+                DeleteWhenItemUsed(current_tem_index);
+                actionButtonsText.text = "";
+                eventSystem.SetSelectedGameObject(selectedObject);
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                actionButtonsText.text = "";
+                eventSystem.SetSelectedGameObject(selectedObject);
+            }
+           
+        }
+        #endregion
     }
-    public void AddToUiInventorySlot(Item item,int currentItemCount)
-    {
-        sprites_items[currentItemCount].sprite = item.icon;
-    }
-
+    // BUTTONS ACTIONS
     public void Click(int item_index)
     {
-        Debug.Log(item_index);
         if (Inventory.instance.items[item_index])
         {
-                UseItem(item_index);
+            eventSystem.SetSelectedGameObject(null);
+            if (!Inventory.instance.items[item_index].isDropable)
+            {
+                actionButtonsText.text = UIContent.ACTION_BUTTON_CONTENT_USE_DROP;
+            }
+            else if (Inventory.instance.items[item_index].isDropable)
+            {
+                actionButtonsText.text = UIContent.ACTION_BUTTON_CONTENT_DROP;
+            }
+            current_tem_index = item_index;
         }
         
     }
-    private void UseItem(int item_index)
+    private void DeleteWhenItemUsed(int item_index)
     {
-        Inventory.instance.items[item_index].Use();
-        Inventory.instance.items[item_index] = null;
-        sprites_items[item_index].sprite = default_sprite;
+        Inventory.instance.RemoveByIndex(item_index);
     }
-    private void DropItem(int item_index)
+    //TODO optimization
+    public void CopyItemsToUIPanel(List<Item> items)
     {
-
+        foreach (Image item_icon in sprites_items)
+        {
+            item_icon.sprite = default_sprite;
+        }
+        for (int i = 0; i < items.Count; i++)
+            if (items[i] != null)
+                sprites_items[i].sprite = items[i].icon;
+    } 
+    private void DisablePlayerInput()
+    {
+        PlayerMovements.isPlayerInputEnable = false;
+        eventSystem.SetSelectedGameObject(null);
     }
-
+    private void EnablePlayerInput()
+    {
+        PlayerMovements.isPlayerInputEnable = true;
+        eventSystem.SetSelectedGameObject(selectedObject);
+    }
 }
