@@ -11,6 +11,8 @@ public class InitChestItem : MonoBehaviour
     public Text dialog_text;
     [HideInInspector]
     public Canvas dialog_window;
+    [HideInInspector]
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +21,7 @@ public class InitChestItem : MonoBehaviour
         dialog_window = GameObject.FindGameObjectWithTag("dialog_window")
             .GetComponent<Canvas>();
         standItem.isItemAdded = false;
+
+        animator = GetComponent<Animator>();
     }
 }

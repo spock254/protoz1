@@ -10,8 +10,6 @@ public class StandItem : Item
     private Canvas dialog_window;
     public bool isItemAdded = false;
 
-    private InitChestItem initChestItem; //??
-
     public virtual void Use()
     {
         base.Use();
