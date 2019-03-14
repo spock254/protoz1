@@ -50,8 +50,8 @@ public class Inventory : MonoBehaviour
         }
         else if (!item.showInInventory)
         {
-            item.Use();
-            return false;
+            Debug.Log("zzz");
+            return true;// ????
         }
         return false;        
     }

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 393dd8528eadea6479ccff37454eaca4, type: 3}
+  m_Name: CHEST
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 0}
+  name: fridge
+  icon: {fileID: 0}
+  showInInventory: 0
+  isDropable: 0
+  pickTimeID: 191238321
+  inner_item: {fileID: 11400000, guid: 5b363d7ca5ea9bc41bda5a49998def09, type: 2}
+  isItemAdded: 1

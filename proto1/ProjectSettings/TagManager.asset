@@ -15,6 +15,8 @@ TagManager:
   - window_slot_4
   - window_slot_5
   - EnvDescription
+  - dialog_text
+  - dialog_window
   layers:
   - Default
   - TransparentFX
