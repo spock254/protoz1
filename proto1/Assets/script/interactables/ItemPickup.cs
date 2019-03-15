@@ -5,13 +5,15 @@ public class ItemPickup : Interactable
 {
 
     public Item item;   // Item to put in the inventory if picked up
-
+    [HideInInspector]
+    public bool isPickedUp = false;
     // When the player interacts with the item
     public override void Interact()
     {
         base.Interact();
         if (Input.GetKeyDown(KeyCode.E))
         {
+            isPickedUp = true;
             PickUp();
         }
     }
@@ -28,7 +30,6 @@ public class ItemPickup : Interactable
         }
         else
         {
-            Debug.Log("USE");
             StandItem sitem = (StandItem)item;
             sitem.Use();
         }

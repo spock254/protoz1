@@ -23,7 +23,6 @@ public class StandItem : Item
         dialog_text.enabled = true;
 
         */
-        Debug.Log(isItemAdded);
         if (!isItemAdded)
         {
             isItemAdded = Inventory.instance.Add(inner_item);

@@ -16,7 +16,7 @@ public class Item : ScriptableObject
     // Called when the item is pressed in the inventory
     public virtual void Use()
     {
-        Debug.Log(name);
+
     }
     public virtual void Drop()
     {
