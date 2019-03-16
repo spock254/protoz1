@@ -10,4 +10,6 @@ public static class UIContent
 
     public readonly static string ITEM_RECIVE = "Вы полуили ";
     public readonly static string NO_SPACE_IN_INV = "недостаточно места в инвенторе";
+    public readonly static string INV_IS_EMPTY = " пустой";
+    public readonly static string ITEM_ADDED = " добавлин";
 }
