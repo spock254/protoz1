@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DoorManager : MonoBehaviour
 {
+    private SpriteRenderer spriteRenderer;
+
     public List<GameObject> outsideFades;
     public List<GameObject> insidedeFades;
     public Transform outsideSpownPoint;
@@ -16,11 +18,14 @@ public class DoorManager : MonoBehaviour
 
     [HideInInspector]
     public bool isOutside = true;
+    private int sortingOrder = 0;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        sortingOrder = spriteRenderer.sortingOrder;
         insaideCollider2D.enabled = false;
     }
     private void Update()
@@ -35,11 +40,13 @@ public class DoorManager : MonoBehaviour
             else
                 isOutside = true;
         }
-
+        animator.SetBool("open", isOutside);
+        //if(animator.GetBool("open"))
+        //animator.SetBool("open", false);
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-       
+ 
 
         if (Input.GetKeyDown(KeyCode.E) && isOutside)
         {
@@ -47,9 +54,8 @@ public class DoorManager : MonoBehaviour
             InsadeFade();
             insaideCollider2D.enabled = true;
             outsaideCollider2D.enabled = false;
-           // isOutside = false;
-            animator.SetBool("open", true);
-            Debug.Log("Entered");
+            spriteRenderer.sortingOrder = sortingOrder + 10;
+           // animator.SetBool("open", true);
         }
         else if (Input.GetKeyDown(KeyCode.E) && !isOutside)
         {
@@ -57,17 +63,14 @@ public class DoorManager : MonoBehaviour
             OutsideFade();
             insaideCollider2D.enabled = false;
             outsaideCollider2D.enabled = true;
-            //isOutside = true;
-            animator.SetBool("open", true);
-            Debug.Log("Exit");
+            spriteRenderer.sortingOrder = sortingOrder;
+           // animator.SetBool("open", true);
         }
         
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        animator.SetBool("open", false);
-        Debug.Log("X");
-        //isOutside = !isOutside;
+
     }
     private void InsadeFade()
     {

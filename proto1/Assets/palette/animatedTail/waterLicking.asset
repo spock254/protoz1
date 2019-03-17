@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: waterLicking
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 21300000, guid: b1be135fccc178148bda87708df47ba6, type: 3}
+  - {fileID: 21300000, guid: 4eddf34512d9a1a48be4aa229984f960, type: 3}
+  - {fileID: 21300000, guid: 97e01bd1322fd654887debe12efdc3fd, type: 3}
+  - {fileID: 21300000, guid: 2ff0268b3516bfa4b858e7aab255ed73, type: 3}
+  - {fileID: 21300000, guid: bab62485deafa904d931d707192dcee1, type: 3}
+  m_MinSpeed: 10
+  m_MaxSpeed: 15
+  m_AnimationStartTime: 0
+  m_TileColliderType: 2
