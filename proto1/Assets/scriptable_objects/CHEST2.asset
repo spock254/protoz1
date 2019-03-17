@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 393dd8528eadea6479ccff37454eaca4, type: 3}
-  m_Name: CHEST
+  m_Name: CHEST2
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  name: fridge
-  icon: {fileID: 21300000, guid: 66e8f7c848506e145a05ec703f6b55b6, type: 3}
+  name: fridge2
+  icon: {fileID: 21300008, guid: 66e8f7c848506e145a05ec703f6b55b6, type: 3}
   showInInventory: 0
   isDropable: 0
-  pickTimeID: 191238321
-  inner_item: {fileID: 11400000, guid: 5b363d7ca5ea9bc41bda5a49998def09, type: 2}
-  isItemAdded: 1
+  pickTimeID: 191138316
+  inner_item: {fileID: 0}
+  isItemAdded: 0

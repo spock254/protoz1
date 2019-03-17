@@ -14,6 +14,9 @@ public class ItemUI : MonoBehaviour
 
     private bool isItemAlreadyAdded = false;
 
+    [HideInInspector]
+    public bool isOpening = false;
+
     void Start()
     {
         itemPickup = GetComponent<ItemPickup>();
@@ -21,23 +24,57 @@ public class ItemUI : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (!isItemAlreadyAdded && standItem.isItemAdded && itemPickup.isInteracting)
-        {
-            FillAndEnable(standItem.inner_item.name + UIContent.ITEM_ADDED);
 
-        }
-        else if ((itemPickup.isPickedUp && isItemAlreadyAdded && itemPickup.isInteracting) || 
-            (!standItem.inner_item && itemPickup.isPickedUp && !isItemAlreadyAdded && itemPickup.isInteracting))
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Player" )
         {
-            FillAndEnable(standItem.name + UIContent.INV_IS_EMPTY);
+            
+            Debug.Log("STAY");
+            if (standItem.isItemAdded && !isItemAlreadyAdded && standItem.inner_item != null)
+            {
+                    FillAndEnable(standItem.inner_item.name + UIContent.ITEM_ADDED);
+                isOpening = true;
+            }
+            else if (!standItem.isItemAdded  && standItem.inner_item != null)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    FillAndEnable(UIContent.NO_SPACE_IN_INV);
+                    isItemAlreadyAdded = false;
+                    isOpening = true;
+                }
+            }
+            else if (!standItem.isItemAdded && !isItemAlreadyAdded && standItem.inner_item == null)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    FillAndEnable(standItem.name + UIContent.INV_IS_EMPTY);
+                    isOpening = true;
+                }
+                    
+            }
+            else if (isItemAlreadyAdded)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    isOpening = true;
+                    FillAndEnable(standItem.name + UIContent.INV_IS_EMPTY);
+                }
+                    
+            }
+            
+            
         }
-        else if (!itemPickup.isInteracting && standItem.isItemAdded)
+        
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
         {
             ClearAndDisable();
             isItemAlreadyAdded = true;
+            isOpening = false;
         }
     }
     private void FillAndEnable(string content)
