@@ -58,38 +58,45 @@ public class UIInventory : MonoBehaviour
             .GetComponent<Image>();
         window_slots[4] = GameObject.FindGameObjectWithTag("window_slot_5")
             .GetComponent<Image>();
-        item_name.text = "Ds";
+        item_name.text = "";
 
         inventory_container.SetActive(false);
         actionButtonsText.text = "";
+        
     }
 
 
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.I))
         {
             inventoryActive = !inventoryActive;
             inventory_container.SetActive(inventoryActive);
-            PlayerMovements.isPlayerInputEnable = !PlayerMovements.isPlayerInputEnable; ;
+            PlayerMovements.isPlayerInputEnable = !PlayerMovements.isPlayerInputEnable;
+            
         }
 
         if (Input.GetAxisRaw("Horizontal") != 0 && buttonSelected == false && inventoryActive)
         {
             eventSystem.SetSelectedGameObject(selectedObject);
             buttonSelected = true;
+            
+            
         }
 
         #region player action item menu
         // if item is usable, opening 2 actions
         if (actionButtonsText.text.Equals(UIContent.ACTION_BUTTON_CONTENT_USE_DROP))
         {
+            item_name.text = Inventory.instance.items[current_tem_index].name;
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Inventory.instance.items[current_tem_index].Use();
                 DeleteWhenItemUsed(current_tem_index);
                 actionButtonsText.text = "";
                 eventSystem.SetSelectedGameObject(selectedObject);
+                item_name.text = "";
             }
             else if (Input.GetKeyDown(KeyCode.X))
             {
@@ -97,28 +104,33 @@ public class UIInventory : MonoBehaviour
                 DeleteWhenItemUsed(current_tem_index);
                 actionButtonsText.text = "";
                 eventSystem.SetSelectedGameObject(selectedObject);
+                item_name.text = "";
             }
             else if (Input.GetKeyDown(KeyCode.Escape))
             {
                 actionButtonsText.text = "";
                 eventSystem.SetSelectedGameObject(selectedObject);
+                item_name.text = "";
             }
             
         }
         // if item dropable opening 1 action
         else if (actionButtonsText.text.Equals(UIContent.ACTION_BUTTON_CONTENT_DROP))
         {
+            item_name.text = Inventory.instance.items[current_tem_index].name;
             if (Input.GetKeyDown(KeyCode.X))
             {
                 Inventory.instance.items[current_tem_index].Drop();
                 DeleteWhenItemUsed(current_tem_index);
                 actionButtonsText.text = "";
                 eventSystem.SetSelectedGameObject(selectedObject);
+                item_name.text = "";
             }
             else if (Input.GetKeyDown(KeyCode.Escape))
             {
                 actionButtonsText.text = "";
                 eventSystem.SetSelectedGameObject(selectedObject);
+                item_name.text = "";
             }
            
         }
@@ -167,4 +179,5 @@ public class UIInventory : MonoBehaviour
         PlayerMovements.isPlayerInputEnable = true;
         eventSystem.SetSelectedGameObject(selectedObject);
     }
+
 }

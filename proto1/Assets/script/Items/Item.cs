@@ -5,6 +5,7 @@
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
 public class Item : ScriptableObject
 {
+
     public Transform prefab;                // spawn item prefab
     new public string name = "New Item";    // Name of the item
     public Sprite icon = null;              // Item icon
