@@ -4,33 +4,40 @@ using UnityEngine;
 using VIDE_Data;
 using UnityEngine.UI;
 
-public class DialogSystem : MonoBehaviour
+public class HorseDialog : MonoBehaviour
 {
 
-    public GameObject container_NPC;
-    public Text text_NPC;
-    public Image image_NPC;
+    private GameObject container_NPC;
+    private Text text_NPC;
+    private Image image_NPC;
+
 
     private void Start()
     {
+        container_NPC = GameObject.FindGameObjectWithTag("dialog_window");
+        text_NPC = GameObject.FindGameObjectWithTag("dialog_text").GetComponent<Text>();
+        image_NPC = GameObject.FindGameObjectWithTag("dialog_image").GetComponent<Image>();
         container_NPC.SetActive(false);
         text_NPC.text = "";
 
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (!VD.isActive)
-            {
-                Begin();
-            }
-            else
+            if (VD.isActive)
             {
                 VD.Next();
             }
         }
 
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!VD.isActive)
+        {
+            Begin();
+        }
     }
     void Begin()
     {
@@ -38,6 +45,7 @@ public class DialogSystem : MonoBehaviour
         VD.OnNodeChange += UpdateUI;
         VD.OnEnd += End;
         VD.BeginDialogue(GetComponent<VIDE_Assign>());
+        VD.SetNode(DialogState.HorseDialogState.GET_STATE(DialogState.HorseDialogState.Node.HELLO));
     }
 
     void UpdateUI(VD.NodeData data)

@@ -17,6 +17,7 @@ TagManager:
   - EnvDescription
   - dialog_text
   - dialog_window
+  - dialog_image
   layers:
   - Default
   - TransparentFX

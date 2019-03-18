@@ -668,7 +668,7 @@ Tilemap:
       - {fileID: 21300000, guid: 0af4c0bec1225d141b254ea24ad830be, type: 3}
       - {fileID: 21300000, guid: ba81b0114e9f9094e8f40c5e3543b3c0, type: 3}
       - {fileID: 21300000, guid: dd77c574da404f641a7eca868c37721d, type: 3}
-      m_AnimationSpeed: 11.041729
+      m_AnimationSpeed: 14.144547
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 21, y: 2, z: 0}
@@ -679,7 +679,7 @@ Tilemap:
       - {fileID: 21300000, guid: 97e01bd1322fd654887debe12efdc3fd, type: 3}
       - {fileID: 21300000, guid: 2ff0268b3516bfa4b858e7aab255ed73, type: 3}
       - {fileID: 21300000, guid: bab62485deafa904d931d707192dcee1, type: 3}
-      m_AnimationSpeed: 13.005615
+      m_AnimationSpeed: 12.982591
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 21, y: 3, z: 0}
@@ -690,7 +690,7 @@ Tilemap:
       - {fileID: 21300000, guid: 97e01bd1322fd654887debe12efdc3fd, type: 3}
       - {fileID: 21300000, guid: 2ff0268b3516bfa4b858e7aab255ed73, type: 3}
       - {fileID: 21300000, guid: bab62485deafa904d931d707192dcee1, type: 3}
-      m_AnimationSpeed: 12.26199
+      m_AnimationSpeed: 10.415762
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 21, y: 4, z: 0}
@@ -701,7 +701,7 @@ Tilemap:
       - {fileID: 21300000, guid: 97e01bd1322fd654887debe12efdc3fd, type: 3}
       - {fileID: 21300000, guid: 2ff0268b3516bfa4b858e7aab255ed73, type: 3}
       - {fileID: 21300000, guid: bab62485deafa904d931d707192dcee1, type: 3}
-      m_AnimationSpeed: 10.017273
+      m_AnimationSpeed: 14.002674
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 21, y: 5, z: 0}
@@ -712,7 +712,7 @@ Tilemap:
       - {fileID: 21300000, guid: 97e01bd1322fd654887debe12efdc3fd, type: 3}
       - {fileID: 21300000, guid: 2ff0268b3516bfa4b858e7aab255ed73, type: 3}
       - {fileID: 21300000, guid: bab62485deafa904d931d707192dcee1, type: 3}
-      m_AnimationSpeed: 13.966344
+      m_AnimationSpeed: 10.253207
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -1241,7 +1241,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &534669906
 Animator:
@@ -1363,7 +1363,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.33}
   serializedVersion: 2
   m_Radius: 0.59
 --- !u!1 &596603856
@@ -2183,24 +2183,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139412176}
   m_CullTransparentMesh: 0
---- !u!1 &1203390708 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8909468524111248600, guid: 8b01770f82009df459ae53d684f12ea0,
-    type: 3}
-  m_PrefabInstance: {fileID: 8909468524351639544}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1203390715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1203390708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba30b6164726a4d45b04087743004445, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1266333495
 GameObject:
   m_ObjectHideFlags: 0
@@ -2251,6 +2233,28 @@ SpriteRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 1350502416451311289}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1541276873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8432345880789199702, guid: 8b01770f82009df459ae53d684f12ea0,
+    type: 3}
+  m_PrefabInstance: {fileID: 8909468524351639544}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &1541276877
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541276873}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 7
 --- !u!1 &1575394041
 GameObject:
   m_ObjectHideFlags: 0
@@ -2744,7 +2748,7 @@ GameObject:
   - component: {fileID: 1686309899}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: dialog_image
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2960,7 +2964,7 @@ Transform:
   - {fileID: 407294796}
   - {fileID: 2073023383}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1858480447
 PrefabInstance:
@@ -5789,8 +5793,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2073023383}
-  - component: {fileID: 2073023384}
-  - component: {fileID: 2073023385}
   m_Layer: 0
   m_Name: DialogManager
   m_TagString: Untagged
@@ -5812,64 +5814,6 @@ Transform:
   m_Father: {fileID: 1777425083}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2073023384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2073023382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 777700ec9997619418ddbd69854b32dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  container_NPC: {fileID: 1685771715}
-  text_NPC: {fileID: 1575394043}
-  image_NPC: {fileID: 1686309899}
---- !u!114 &2073023385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2073023382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b8b99d8a12e39e4b94d2d7162c7c978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  diags:
-  - Charlie
-  - CommentModifier
-  - CrazyCap
-  - DEMO_Condition
-  - Example3Dialogue
-  - Example4_dialogue
-  - Hourse
-  - Item_LookUp
-  - Laura
-  - MrCube
-  - NPCOnly
-  - QuestChartDemo
-  - TriggeredDude
-  - Witch
-  assignedIndex: 6
-  assignedID: 28093
-  assignedDialogue: Hourse
-  interactionCount: 0
-  alias: 
-  overrideStartNode: -1
-  defaultNPCSprite: {fileID: 0}
-  defaultPlayerSprite: {fileID: 0}
-  targetManager: {fileID: 0}
-  preload: 0
-  notuptodate: 0
-  startp: 0
-  loadtag: 
-  langs: []
-  S_playerDiags: []
-  S_actionNodes: []
 --- !u!1001 &1268792353712108731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6347,11 +6291,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8909468524594950133, guid: 8b01770f82009df459ae53d684f12ea0,
-        type: 3}
-      propertyPath: m_Name
-      value: horse
-      objectReference: {fileID: 0}
     - target: {fileID: 8909468524594950120, guid: 8b01770f82009df459ae53d684f12ea0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6407,6 +6346,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8909468524594950133, guid: 8b01770f82009df459ae53d684f12ea0,
+        type: 3}
+      propertyPath: m_Name
+      value: horse
+      objectReference: {fileID: 0}
     - target: {fileID: 8909468524111248602, guid: 8b01770f82009df459ae53d684f12ea0,
         type: 3}
       propertyPath: player_collider
@@ -6426,6 +6370,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Offset.y
       value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432345880789199702, guid: 8b01770f82009df459ae53d684f12ea0,
+        type: 3}
+      propertyPath: m_TagString
+      value: dialog_image
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432345879679714382, guid: 8b01770f82009df459ae53d684f12ea0,
+        type: 3}
+      propertyPath: player_collider
+      value: 
+      objectReference: {fileID: 38426815}
+    - target: {fileID: 8432345880789199689, guid: 8b01770f82009df459ae53d684f12ea0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b01770f82009df459ae53d684f12ea0, type: 3}
