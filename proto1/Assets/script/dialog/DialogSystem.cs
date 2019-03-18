@@ -15,6 +15,7 @@ public class DialogSystem : MonoBehaviour
     {
         container_NPC.SetActive(false);
         text_NPC.text = "";
+
     }
     void Update()
     {
@@ -33,6 +34,7 @@ public class DialogSystem : MonoBehaviour
     }
     void Begin()
     {
+        
         VD.OnNodeChange += UpdateUI;
         VD.OnEnd += End;
         VD.BeginDialogue(GetComponent<VIDE_Assign>());
@@ -46,10 +48,12 @@ public class DialogSystem : MonoBehaviour
         }
         else
         {
-            container_NPC.SetActive(true);
-            text_NPC.text = data.comments[data.commentIndex];
-            image_NPC.sprite = data.sprites[data.commentIndex];
             
+                container_NPC.SetActive(true);
+                text_NPC.text = data.comments[data.commentIndex];
+                image_NPC.sprite = data.sprites[data.commentIndex];
+            
+
         }
     }
     void End(VD.NodeData data)
