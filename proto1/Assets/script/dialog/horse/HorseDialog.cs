@@ -21,7 +21,7 @@ public class HorseDialog : MonoBehaviour
         text_NPC.text = "";
 
     }
-    /*
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -40,14 +40,14 @@ public class HorseDialog : MonoBehaviour
             Begin();
         }
     }
-    */
+    
     void Begin()
     {
         
         VD.OnNodeChange += UpdateUI;
         VD.OnEnd += End;
         VD.BeginDialogue(GetComponent<VIDE_Assign>());
-        VD.SetNode(DialogState.HorseDialogState.GET_STATE(DialogState.HorseDialogState.Node.HELLO));
+        VD.SetNode(DialogState.HorseDialogState.CURRENT_DIALOG_STATE);
     }
 
     void UpdateUI(VD.NodeData data)

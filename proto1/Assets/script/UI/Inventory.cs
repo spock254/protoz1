@@ -39,7 +39,6 @@ public class Inventory : MonoBehaviour
                 items.Add(item);
                 RemoveAllNullItems();
                 UIInventory.instance.CopyItemsToUIPanel(items);
-                Debug.Log(items.Count);
                 return true;
             }
             else if (items.Count >= space)

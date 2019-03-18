@@ -8,6 +8,11 @@ public class GetItemQuest : BaseQuest
     [HideInInspector]
     public bool item_been_in_invetory = false;
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        QuestChecking();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.X))
@@ -16,11 +21,9 @@ public class GetItemQuest : BaseQuest
                 "|||"+ "isQuestPass = "+ isQuestPass+
                 "|||"+ "isQuestCanceld = "+ isQuestCanceld);
         }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            QuestChecking();
-        }
+       
     }
+
 
     public override void QuestChecking()
     {
@@ -31,6 +34,8 @@ public class GetItemQuest : BaseQuest
             base.isQuestPass = isItemInInventory();
             if (item_been_in_invetory != base.isQuestPass)
                 base.isQuestCanceld = true;
+            else
+                base.isQuestCanceld = false;
         }
     }
     private bool isItemInInventory()

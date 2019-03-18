@@ -668,7 +668,7 @@ Tilemap:
       - {fileID: 21300000, guid: 0af4c0bec1225d141b254ea24ad830be, type: 3}
       - {fileID: 21300000, guid: ba81b0114e9f9094e8f40c5e3543b3c0, type: 3}
       - {fileID: 21300000, guid: dd77c574da404f641a7eca868c37721d, type: 3}
-      m_AnimationSpeed: 14.199935
+      m_AnimationSpeed: 14.96568
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 21, y: 2, z: 0}
@@ -679,7 +679,7 @@ Tilemap:
       - {fileID: 21300000, guid: 97e01bd1322fd654887debe12efdc3fd, type: 3}
       - {fileID: 21300000, guid: 2ff0268b3516bfa4b858e7aab255ed73, type: 3}
       - {fileID: 21300000, guid: bab62485deafa904d931d707192dcee1, type: 3}
-      m_AnimationSpeed: 10.433151
+      m_AnimationSpeed: 11.794178
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 21, y: 3, z: 0}
@@ -690,7 +690,7 @@ Tilemap:
       - {fileID: 21300000, guid: 97e01bd1322fd654887debe12efdc3fd, type: 3}
       - {fileID: 21300000, guid: 2ff0268b3516bfa4b858e7aab255ed73, type: 3}
       - {fileID: 21300000, guid: bab62485deafa904d931d707192dcee1, type: 3}
-      m_AnimationSpeed: 14.757111
+      m_AnimationSpeed: 12.121098
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 21, y: 4, z: 0}
@@ -701,7 +701,7 @@ Tilemap:
       - {fileID: 21300000, guid: 97e01bd1322fd654887debe12efdc3fd, type: 3}
       - {fileID: 21300000, guid: 2ff0268b3516bfa4b858e7aab255ed73, type: 3}
       - {fileID: 21300000, guid: bab62485deafa904d931d707192dcee1, type: 3}
-      m_AnimationSpeed: 11.206332
+      m_AnimationSpeed: 11.83345
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 21, y: 5, z: 0}
@@ -712,7 +712,7 @@ Tilemap:
       - {fileID: 21300000, guid: 97e01bd1322fd654887debe12efdc3fd, type: 3}
       - {fileID: 21300000, guid: 2ff0268b3516bfa4b858e7aab255ed73, type: 3}
       - {fileID: 21300000, guid: bab62485deafa904d931d707192dcee1, type: 3}
-      m_AnimationSpeed: 14.477779
+      m_AnimationSpeed: 13.096159
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -1063,7 +1063,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463295885}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.82, y: 0.33, z: 0}
+  m_LocalPosition: {x: 20.82, y: 9.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1708976871}
@@ -1502,6 +1502,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 665193643}
+  - component: {fileID: 665193644}
   m_Layer: 0
   m_Name: quests
   m_TagString: Untagged
@@ -1524,6 +1525,19 @@ Transform:
   m_Father: {fileID: 1548885142}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &665193644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665193642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8178650307910946969133c3c1ca171, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 2001140476}
 --- !u!1 &727810743
 GameObject:
   m_ObjectHideFlags: 0
@@ -3318,6 +3332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2001140475}
   - component: {fileID: 2001140476}
+  - component: {fileID: 2001140477}
   m_Layer: 0
   m_Name: getItem_cigarets
   m_TagString: Untagged
@@ -3355,6 +3370,22 @@ MonoBehaviour:
   isQuestCanceld: 0
   need_item: {fileID: 11400000, guid: 5b363d7ca5ea9bc41bda5a49998def09, type: 2}
   item_been_in_invetory: 0
+--- !u!58 &2001140477
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001140474}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 7.1
 --- !u!1 &2051542354
 GameObject:
   m_ObjectHideFlags: 0
@@ -6473,6 +6504,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: dialog_image
       objectReference: {fileID: 0}
+    - target: {fileID: 8432345880161701859, guid: 8b01770f82009df459ae53d684f12ea0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8909468524594950120, guid: 8b01770f82009df459ae53d684f12ea0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6562,11 +6598,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8432345880161701859, guid: 8b01770f82009df459ae53d684f12ea0,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b01770f82009df459ae53d684f12ea0, type: 3}
