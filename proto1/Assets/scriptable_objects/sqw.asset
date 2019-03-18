@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838144c1a1885da43bc8deabac0c2600, type: 3}
   m_Name: sqw
   m_EditorClassIdentifier: 
+  ID: 101
+  prefab: {fileID: 0}
   name: sqw
   icon: {fileID: 21300000, guid: c26271ba9483b7d49831652def8744d1, type: 3}
   showInInventory: 1
+  isDropable: 0
+  pickTimeID: 0

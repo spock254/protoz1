@@ -30,7 +30,6 @@ public class ItemUI : MonoBehaviour
         if (collision.tag == "Player" )
         {
             
-            Debug.Log("STAY");
             if (standItem.isItemAdded && !isItemAlreadyAdded && standItem.inner_item != null)
             {
                     FillAndEnable(standItem.inner_item.name + UIContent.ITEM_ADDED);

@@ -21,6 +21,7 @@ public class HorseDialog : MonoBehaviour
         text_NPC.text = "";
 
     }
+    /*
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -39,6 +40,7 @@ public class HorseDialog : MonoBehaviour
             Begin();
         }
     }
+    */
     void Begin()
     {
         

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393dd8528eadea6479ccff37454eaca4, type: 3}
   m_Name: CHEST2
   m_EditorClassIdentifier: 
+  ID: 2
   prefab: {fileID: 0}
   name: fridge2
   icon: {fileID: 21300008, guid: 66e8f7c848506e145a05ec703f6b55b6, type: 3}

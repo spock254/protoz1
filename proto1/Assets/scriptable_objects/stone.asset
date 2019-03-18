@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9337691504e4e33448244377981765b3, type: 3}
   m_Name: stone
   m_EditorClassIdentifier: 
+  ID: 200
   prefab: {fileID: 1785138110, guid: 7c52d18c146cf8043b59dd14ffb304c3, type: 3}
   name: stone
   icon: {fileID: 21300000, guid: 48bee340d46553b4d8d5fbaf31ad27dc, type: 3}
   showInInventory: 1
   isDropable: 1
+  pickTimeID: 0
