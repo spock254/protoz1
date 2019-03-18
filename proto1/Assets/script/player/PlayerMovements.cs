@@ -16,8 +16,9 @@ public class PlayerMovements : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(isPlayerInputEnable)
+        if (isPlayerInputEnable)
             rigidbody2D.velocity = new Vector2(Mathf.Lerp(0, Input.GetAxisRaw("Horizontal") * curSpeed, 0.8f),
                                                 Mathf.Lerp(0, Input.GetAxisRaw("Vertical") * curSpeed, 0.8f));
+        else rigidbody2D.velocity = Vector2.zero;
     }
 }

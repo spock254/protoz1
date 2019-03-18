@@ -23,6 +23,10 @@ public class AnimTest : MonoBehaviour
             AnimController(moveX, moveY);
             AnimSet();
         }
+        else
+        {
+            IdleAnim();
+        }
 
     }
 
@@ -42,6 +46,13 @@ public class AnimTest : MonoBehaviour
         animator.SetBool("right", right);
 
 
+    }
+    private void IdleAnim()
+    {
+        animator.SetBool("up", false);
+        animator.SetBool("down", false);
+        animator.SetBool("left", false);
+        animator.SetBool("right", false);
     }
 
     

@@ -26,6 +26,7 @@ public class AnimationAgeSet : MonoBehaviour
     }
     public static void AgeSwitcher()
     {
+        /*
         if (PlayerManager.Stats.Age.StatValue <= 20)
         {
             SetLayer(0);
@@ -50,5 +51,6 @@ public class AnimationAgeSet : MonoBehaviour
         {
             SetLayer(5);
         }
+        */
     }
 }
