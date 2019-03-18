@@ -15,27 +15,9 @@ public class AnimStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // test
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            foreach (Item item in Inventory.instance.items)
-            {
-                Debug.Log(item.name);
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            int index = -1;
-            for (int i = 0; i < Inventory.instance.items.Count; i++)
-            {
-                if (Inventory.instance.items[i].name.Equals("cigarettes"))
-                {
-                    //Inventory.instance.RemoveByIndex(i);
-                    index = i;
-                }
-            }
-            if (index != -1)
-                Inventory.instance.RemoveByIndex(index);
-        }
+        if(DialogState.HorseDialogState.CURRENT_DIALOG_STATE == 0)
+            animator.SetBool("smoking", false);
+        else if(DialogState.HorseDialogState.CURRENT_DIALOG_STATE == 1)
+            animator.SetBool("smoking", true);
     }
 }

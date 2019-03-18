@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class HorseDialog : BaseDialog
 {
-
+   
 
     void Update()
     {
@@ -17,18 +17,25 @@ public class HorseDialog : BaseDialog
                 VD.Next();
             }
         }
-        
+
 
     }
+
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (currentDialogState != DialogState.HorseDialogState.CURRENT_DIALOG_STATE)
+        {
             dialog_over = false;
-        if (!VD.isActive && !base.dialog_over)
+            currentDialogState = DialogState.HorseDialogState.CURRENT_DIALOG_STATE;
+        }
+        if (!VD.isActive && !dialog_over)
         {
             Begin();
+            
         }
     }
-    
-    
+
+   
+
 }

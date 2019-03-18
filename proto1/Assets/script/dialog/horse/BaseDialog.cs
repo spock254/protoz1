@@ -22,6 +22,9 @@ public class BaseDialog : MonoBehaviour
         currentDialogState = DialogState.HorseDialogState.CURRENT_DIALOG_STATE;
 
     }
+
+
+
     protected void Begin()
     {
         PlayerMovements.isPlayerInputEnable = false;
@@ -31,7 +34,7 @@ public class BaseDialog : MonoBehaviour
         VD.SetNode(DialogState.HorseDialogState.CURRENT_DIALOG_STATE);
     }
 
-    protected void UpdateUI(VD.NodeData data)
+    void UpdateUI(VD.NodeData data)
     {
         if (data.isPlayer)
         {
@@ -42,12 +45,12 @@ public class BaseDialog : MonoBehaviour
 
             container_NPC.SetActive(true);
             text_NPC.text = data.comments[data.commentIndex];
-            image_NPC.sprite = data.sprites[data.commentIndex];
+            //image_NPC.sprite = data.sprites[data.commentIndex];
 
 
         }
     }
-    protected void End(VD.NodeData data)
+    void End(VD.NodeData data)
     {
         PlayerMovements.isPlayerInputEnable = true;
         dialog_over = true;
@@ -62,4 +65,5 @@ public class BaseDialog : MonoBehaviour
         if (container_NPC != null)
             End(null);
     }
+  
 }

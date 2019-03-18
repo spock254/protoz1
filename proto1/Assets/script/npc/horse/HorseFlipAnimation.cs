@@ -13,6 +13,7 @@ public class HorseFlipAnimation : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
