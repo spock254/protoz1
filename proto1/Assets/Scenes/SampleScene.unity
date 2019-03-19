@@ -668,7 +668,7 @@ Tilemap:
       - {fileID: 21300000, guid: 0af4c0bec1225d141b254ea24ad830be, type: 3}
       - {fileID: 21300000, guid: ba81b0114e9f9094e8f40c5e3543b3c0, type: 3}
       - {fileID: 21300000, guid: dd77c574da404f641a7eca868c37721d, type: 3}
-      m_AnimationSpeed: 14.237639
+      m_AnimationSpeed: 13.144574
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 21, y: 2, z: 0}
@@ -679,7 +679,7 @@ Tilemap:
       - {fileID: 21300000, guid: 97e01bd1322fd654887debe12efdc3fd, type: 3}
       - {fileID: 21300000, guid: 2ff0268b3516bfa4b858e7aab255ed73, type: 3}
       - {fileID: 21300000, guid: bab62485deafa904d931d707192dcee1, type: 3}
-      m_AnimationSpeed: 12.120462
+      m_AnimationSpeed: 12.145086
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 21, y: 3, z: 0}
@@ -690,7 +690,7 @@ Tilemap:
       - {fileID: 21300000, guid: 97e01bd1322fd654887debe12efdc3fd, type: 3}
       - {fileID: 21300000, guid: 2ff0268b3516bfa4b858e7aab255ed73, type: 3}
       - {fileID: 21300000, guid: bab62485deafa904d931d707192dcee1, type: 3}
-      m_AnimationSpeed: 14.714405
+      m_AnimationSpeed: 14.336106
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 21, y: 4, z: 0}
@@ -701,7 +701,7 @@ Tilemap:
       - {fileID: 21300000, guid: 97e01bd1322fd654887debe12efdc3fd, type: 3}
       - {fileID: 21300000, guid: 2ff0268b3516bfa4b858e7aab255ed73, type: 3}
       - {fileID: 21300000, guid: bab62485deafa904d931d707192dcee1, type: 3}
-      m_AnimationSpeed: 14.986302
+      m_AnimationSpeed: 11.431408
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 21, y: 5, z: 0}
@@ -712,7 +712,7 @@ Tilemap:
       - {fileID: 21300000, guid: 97e01bd1322fd654887debe12efdc3fd, type: 3}
       - {fileID: 21300000, guid: 2ff0268b3516bfa4b858e7aab255ed73, type: 3}
       - {fileID: 21300000, guid: bab62485deafa904d931d707192dcee1, type: 3}
-      m_AnimationSpeed: 13.154284
+      m_AnimationSpeed: 14.720142
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -1063,7 +1063,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463295885}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.82, y: 9.41, z: 0}
+  m_LocalPosition: {x: 22.34, y: 16.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1708976871}
@@ -3037,6 +3037,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1843433344 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3877298003827836702, guid: 8b01770f82009df459ae53d684f12ea0,
+    type: 3}
+  m_PrefabInstance: {fileID: 3877298002939053514}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &1843433346
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843433344}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 7.1
 --- !u!1001 &1858480447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6224,6 +6246,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: woden_door
       objectReference: {fileID: 0}
+    - target: {fileID: 1909684779094019550, guid: 50dcd2116605b4e44a51c45866bc44cf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1909684779233498209, guid: 50dcd2116605b4e44a51c45866bc44cf,
         type: 3}
       propertyPath: m_IsActive
@@ -6480,7 +6507,12 @@ PrefabInstance:
     - target: {fileID: 3877298003424199075, guid: 8b01770f82009df459ae53d684f12ea0,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3877298003827836700, guid: 8b01770f82009df459ae53d684f12ea0,
+        type: 3}
+      propertyPath: npcMemory
+      value: 
+      objectReference: {fileID: 2003284948}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b01770f82009df459ae53d684f12ea0, type: 3}

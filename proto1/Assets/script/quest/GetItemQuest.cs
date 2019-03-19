@@ -6,8 +6,7 @@ public class GetItemQuest : BaseQuest
 {
     public Item need_item;
     [HideInInspector]
-    public bool item_been_in_invetory = false;
-
+    /*
     private bool _isTriggert = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,7 +20,7 @@ public class GetItemQuest : BaseQuest
             _isTriggert = true;
         }
         
-    }
+    }*/
 
     private void Update()
     {

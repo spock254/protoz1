@@ -5,8 +5,14 @@ using UnityEngine;
 public class GetItemQuestDetection : MonoBehaviour
 {
     public GetItemQuest itemQuest;
-    private void OnTriggerEnter2D(Collider2D collision)
+    bool _isTriggert = false;
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        itemQuest.item_been_in_invetory = itemQuest.ItemDetection();
+        if (!_isTriggert && !itemQuest.item_been_in_invetory)
+        {
+            itemQuest.item_been_in_invetory = itemQuest.ItemDetection();
+            if(itemQuest.item_been_in_invetory)
+            _isTriggert = true;
+        }
     }
 }

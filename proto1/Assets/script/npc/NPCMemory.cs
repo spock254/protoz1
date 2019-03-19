@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NPCMemory : MonoBehaviour
 {
-    [SerializeField]
+   // [SerializeField]
     private Dictionary<string, bool> questMemory;
     // Start is called before the first frame update
     void Start()
