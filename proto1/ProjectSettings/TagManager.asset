@@ -18,6 +18,7 @@ TagManager:
   - dialog_text
   - dialog_window
   - dialog_image
+  - horse
   layers:
   - Default
   - TransparentFX

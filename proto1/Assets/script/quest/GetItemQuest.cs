@@ -8,9 +8,19 @@ public class GetItemQuest : BaseQuest
     [HideInInspector]
     public bool item_been_in_invetory = false;
 
+    private bool _isTriggert = false;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        QuestChecking();
+        if (!_isTriggert && item_been_in_invetory)
+        {
+            QuestChecking();
+            Debug.Log("item_been_in_invetory = " + item_been_in_invetory + "" +
+        "|||" + "isQuestPass = " + isQuestPass +
+        "|||" + "isQuestCanceld = " + isQuestCanceld);
+            _isTriggert = true;
+        }
+        
     }
 
     private void Update()
@@ -21,7 +31,7 @@ public class GetItemQuest : BaseQuest
                 "|||"+ "isQuestPass = "+ isQuestPass+
                 "|||"+ "isQuestCanceld = "+ isQuestCanceld);
         }
-       
+        if (Input.GetKeyDown(KeyCode.C)) QuestChecking();
     }
 
 

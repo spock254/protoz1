@@ -15,9 +15,11 @@ public class AnimStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(DialogState.HorseDialogState.CURRENT_DIALOG_STATE == 0)
+        if (HorseState.GET_STATE_RAW() == HorseState.State.HELLO)
             animator.SetBool("smoking", false);
-        else if(DialogState.HorseDialogState.CURRENT_DIALOG_STATE == 1)
+        else if (HorseState.GET_STATE_RAW() == HorseState.State.CIGARETS)
             animator.SetBool("smoking", true);
+        else if (HorseState.GET_STATE_RAW() == HorseState.State.NO_CIGARETS)
+            animator.SetBool("smoking", false);
     }
 }

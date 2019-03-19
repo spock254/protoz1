@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class BaseQuestController : MonoBehaviour
 {
-    public BaseQuest quest;
+    public NPCMemory npcMemory;
 
+    public List<BaseQuest> quest;
 
-    public virtual void Anim()
+    protected virtual void Start()
+    {
+        quest = new List<BaseQuest>(GetComponentsInChildren<BaseQuest>());
+    }
+
+    public virtual void Action()
     {
 
     }

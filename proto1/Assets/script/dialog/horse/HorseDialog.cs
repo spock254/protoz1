@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class HorseDialog : BaseDialog
 {
-   
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -17,17 +15,13 @@ public class HorseDialog : BaseDialog
                 VD.Next();
             }
         }
-
-
     }
-
-    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (currentDialogState != DialogState.HorseDialogState.CURRENT_DIALOG_STATE)
+        if (currentDialogState != HorseState.GET_STATE())
         {
             dialog_over = false;
-            currentDialogState = DialogState.HorseDialogState.CURRENT_DIALOG_STATE;
+            currentDialogState = HorseState.GET_STATE();
         }
         if (!VD.isActive && !dialog_over)
         {
@@ -35,7 +29,4 @@ public class HorseDialog : BaseDialog
             
         }
     }
-
-   
-
 }

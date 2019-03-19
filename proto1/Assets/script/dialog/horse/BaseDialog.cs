@@ -19,7 +19,7 @@ public class BaseDialog : MonoBehaviour
         image_NPC = GameObject.FindGameObjectWithTag("dialog_image").GetComponent<Image>();
         container_NPC.SetActive(false);
         text_NPC.text = "";
-        currentDialogState = DialogState.HorseDialogState.CURRENT_DIALOG_STATE;
+        currentDialogState = HorseState.GET_STATE();
 
     }
 
@@ -31,7 +31,7 @@ public class BaseDialog : MonoBehaviour
         VD.OnNodeChange += UpdateUI;
         VD.OnEnd += End;
         VD.BeginDialogue(GetComponent<VIDE_Assign>());
-        VD.SetNode(DialogState.HorseDialogState.CURRENT_DIALOG_STATE);
+        VD.SetNode(HorseState.GET_STATE());
     }
 
     void UpdateUI(VD.NodeData data)
