@@ -5,6 +5,8 @@ using UnityEngine;
 public class AnimStateController : MonoBehaviour
 {
     private Animator animator;
+
+    private bool _isAngryPlayed = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,15 @@ public class AnimStateController : MonoBehaviour
         else if (HorseState.GET_STATE_RAW() == HorseState.State.CIGARETS)
             animator.SetBool("smoking", true);
         else if (HorseState.GET_STATE_RAW() == HorseState.State.NO_CIGARETS)
+        {
+            if (!_isAngryPlayed)
+            {
+                animator.Play("angry1");
+                _isAngryPlayed = true;
+            }
             animator.SetBool("smoking", false);
+            
+        }
+            
     }
 }

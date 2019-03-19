@@ -33,6 +33,7 @@ public class DoorManager : MonoBehaviour
         // TODO 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            animator.Play("open_door");
             float distanceOutside = Vector2.Distance(player.transform.position, outsideSpownPoint.position);
             float distanceInside = Vector2.Distance(player.transform.position, insideSpownPoint.position);
             if (distanceOutside > distanceInside)
@@ -40,7 +41,9 @@ public class DoorManager : MonoBehaviour
             else
                 isOutside = true;
         }
-        animator.SetBool("open", isOutside);
+        
+        //animator.SetBool("open", isOutside);
+
         //if(animator.GetBool("open"))
         //animator.SetBool("open", false);
     }
