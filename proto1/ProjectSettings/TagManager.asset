@@ -19,6 +19,7 @@ TagManager:
   - dialog_window
   - dialog_image
   - horse
+  - head_container
   layers:
   - Default
   - TransparentFX
