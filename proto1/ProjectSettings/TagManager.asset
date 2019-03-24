@@ -23,6 +23,7 @@ TagManager:
   - body_conainer
   - lags_container
   - hands_container
+  - head_bg_container
   layers:
   - Default
   - TransparentFX
