@@ -15,21 +15,24 @@ public class PlayerGeneration : MonoBehaviour
     [Header("lags")]
     public List<GameObject> player_lags;
     public GameObject lags;
-    [Header("hands")]
-    public List<GameObject> player_hands;
-    public List<GameObject> hands;
-
-    //Colors
-    public List<Color> skin_colors;
-    public List<Color> hair_colors;
-    public List<Color> body_colors;
-    public List<Color> lags_colors;
+    [Header("hands left")]
+    public List<GameObject> player_hands_left;
+    public GameObject hands_left;
+    [Header("hands right")]
+    public List<GameObject> player_hands_right;
+    public GameObject hands_right;
 
     private GameObject head_bg_container;
     private GameObject head_container;
     private GameObject body_conainer;
     private GameObject lags_container;
     private GameObject hands_container;
+
+    //Colors
+    public List<Color> skin_colors;
+    public List<Color> hair_colors;
+    public List<Color> body_colors;
+    public List<Color> lags_colors;
 
     private int current_index;
     //Animation
@@ -52,11 +55,12 @@ public class PlayerGeneration : MonoBehaviour
     {
         int index = Random.Range(0, player_heads.Count);
 
-        RandomizePlayerPart(player_heads_bg, head_bg_container, head_bg, index);
-        RandomizePlayerPart(player_heads, head_container, head, index);
-       // RandomizePlayerPart(player_heads_bg, head_container, head_bg);
-        RandomizePlayerPart(player_body, body_conainer, body);
-        RandomizePlayerPart(player_lags, lags_container, lags);
+        RandomizePlayerPart(player_heads_bg, head_bg_container, head_bg, index); // head bg
+        RandomizePlayerPart(player_heads, head_container, head, index); // head
+        RandomizePlayerPart(player_body, body_conainer, body); // body
+        RandomizePlayerPart(player_lags, lags_container, lags); // lags
+        RandomizePlayerPart(player_hands_left, hands_container, hands_left); // hand left
+        RandomizePlayerPart(player_hands_right, hands_container, hands_right); // hand right
     }
     void Update()
     {
