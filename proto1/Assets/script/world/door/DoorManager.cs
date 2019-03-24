@@ -32,7 +32,7 @@ public class DoorManager : MonoBehaviour
     private void Update()
     {
         // TODO 
-        if (Input.GetKeyDown(KeyCode.E) && isInArea)
+        if (Input.GetKeyDown(KeyCode.E))
         {
             //animator.Play("open_door");
             float distanceOutside = Vector2.Distance(player.transform.position, outsideSpownPoint.position);
@@ -59,7 +59,7 @@ public class DoorManager : MonoBehaviour
             insaideCollider2D.enabled = true;
             outsaideCollider2D.enabled = false;
             spriteRenderer.sortingOrder = sortingOrder + 10;
-            //animator.Play("open_door");
+            animator.Play("open_door");
             // animator.SetBool("open", true);
         }
         else if (Input.GetKeyDown(KeyCode.E) && !isOutside)
@@ -69,7 +69,7 @@ public class DoorManager : MonoBehaviour
             insaideCollider2D.enabled = false;
             outsaideCollider2D.enabled = true;
             spriteRenderer.sortingOrder = sortingOrder;
-            //animator.Play("open_door");
+            animator.Play("open_door");
             // animator.SetBool("open", true);
         }
         
