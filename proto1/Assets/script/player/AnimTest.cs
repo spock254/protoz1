@@ -16,6 +16,7 @@ public class AnimTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (PlayerMovements.isPlayerInputEnable)
         {
             float moveY = Input.GetAxisRaw("Vertical");

@@ -20,6 +20,9 @@ TagManager:
   - dialog_image
   - horse
   - head_container
+  - body_conainer
+  - lags_container
+  - hands_container
   layers:
   - Default
   - TransparentFX
