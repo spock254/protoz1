@@ -19,6 +19,7 @@ public class DoorManager : MonoBehaviour
     [HideInInspector]
     public bool isOutside = true;
     private int sortingOrder = 0;
+    private bool isInArea = false;
 
     private void Start()
     {
@@ -31,9 +32,9 @@ public class DoorManager : MonoBehaviour
     private void Update()
     {
         // TODO 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && isInArea)
         {
-            animator.Play("open_door");
+            //animator.Play("open_door");
             float distanceOutside = Vector2.Distance(player.transform.position, outsideSpownPoint.position);
             float distanceInside = Vector2.Distance(player.transform.position, insideSpownPoint.position);
             if (distanceOutside > distanceInside)
@@ -49,7 +50,7 @@ public class DoorManager : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
- 
+        //if (!isInArea) isInArea = true;
 
         if (Input.GetKeyDown(KeyCode.E) && isOutside)
         {
@@ -58,7 +59,8 @@ public class DoorManager : MonoBehaviour
             insaideCollider2D.enabled = true;
             outsaideCollider2D.enabled = false;
             spriteRenderer.sortingOrder = sortingOrder + 10;
-           // animator.SetBool("open", true);
+            //animator.Play("open_door");
+            // animator.SetBool("open", true);
         }
         else if (Input.GetKeyDown(KeyCode.E) && !isOutside)
         {
@@ -67,13 +69,18 @@ public class DoorManager : MonoBehaviour
             insaideCollider2D.enabled = false;
             outsaideCollider2D.enabled = true;
             spriteRenderer.sortingOrder = sortingOrder;
-           // animator.SetBool("open", true);
+            //animator.Play("open_door");
+            // animator.SetBool("open", true);
         }
         
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-
+        //isInArea = false;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //isInArea = true;
     }
     private void InsadeFade()
     {
