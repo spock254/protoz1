@@ -24,6 +24,7 @@ TagManager:
   - lags_container
   - hands_container
   - head_bg_container
+  - steps
   layers:
   - Default
   - TransparentFX

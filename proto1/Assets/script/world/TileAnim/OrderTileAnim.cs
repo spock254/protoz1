@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OrderTileAnim : MonoBehaviour
 {
-    public SpriteRenderer spriteRendererPlayer;
+    //public SpriteRenderer spriteRendererPlayer;
     private GameObject player;
     private int order = 21;
     private int oldOrder = 0;
@@ -15,17 +15,26 @@ public class OrderTileAnim : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         player_orders = new List<int>();
-        renders = player.GetComponentsInChildren<SpriteRenderer>();
-        foreach (SpriteRenderer item in renders)
-        {
-            player_orders.Add(item.sortingOrder);
-        }
+        
+       // foreach (SpriteRenderer item in renders)
+       // {
+       //     player_orders.Add(item.sortingOrder);
+       // }
 
-        oldOrder = spriteRendererPlayer.sortingOrder;
+        //oldOrder = spriteRendererPlayer.sortingOrder;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (player_orders.Count == 0)
+        {
+            renders = player.GetComponentsInChildren<SpriteRenderer>();
+            foreach (SpriteRenderer item in renders)
+             {
+                 player_orders.Add(item.sortingOrder);
+                Debug.Log(item.sortingOrder);
+             }
+        }
         //spriteRendererPlayer.sortingOrder = order;
         foreach (SpriteRenderer item in renders)
         {

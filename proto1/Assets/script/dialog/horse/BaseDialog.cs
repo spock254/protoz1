@@ -2,6 +2,8 @@
 using UnityEngine;
 using VIDE_Data;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.Collections;
 
 public class BaseDialog : MonoBehaviour
 {
@@ -44,10 +46,23 @@ public class BaseDialog : MonoBehaviour
         {
 
             container_NPC.SetActive(true);
-            text_NPC.text = data.comments[data.commentIndex];
+            //text_NPC.text = data.comments[data.commentIndex];
+            StartCoroutine(AnimateText(data.comments[data.commentIndex]));
             //image_NPC.sprite = data.sprites[data.commentIndex];
 
 
+        }
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (VD.isActive)
+            {
+                text_NPC.text = "";
+                VD.Next();
+                
+            }
         }
     }
     void End(VD.NodeData data)
@@ -58,12 +73,23 @@ public class BaseDialog : MonoBehaviour
         VD.OnNodeChange -= UpdateUI;
         VD.OnEnd -= End;
         VD.EndDialogue();
-        
+        text_NPC.text = ""; // !
+
     }
     void OnDisable()
     {
         if (container_NPC != null)
             End(null);
     }
-  
+    IEnumerator AnimateText(string strComplete)
+    {
+        int i = 0;
+        text_NPC.text = "";
+        while (i < strComplete.Length)
+        {
+            text_NPC.text += strComplete[i];
+            i++;
+            yield return new WaitForSeconds(0.03F);
+        }
+    }
 }

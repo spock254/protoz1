@@ -17,16 +17,6 @@ public class HorseDialog : BaseDialog
         player_target = GameObject.FindGameObjectWithTag("Player");
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (VD.isActive)
-            {
-                VD.Next();
-            }
-        }
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         cameraController.target = this.gameObject;

@@ -8,6 +8,8 @@ public class AnimationAgeSet : MonoBehaviour
     private const float CURRENT_LAYER_WEIGHT = 2f;
     private static int current_layer_index = 0;
 
+    public static int i = 0;
+
     private bool ageChanged = false;
 
     void Start()
@@ -16,12 +18,28 @@ public class AnimationAgeSet : MonoBehaviour
     }
 
     // Update is called once per frame
+    private void Update()
+    {
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{ if (i == 7) { i = 0; SetLayer(i); }
+        //    else { SetLayer(i); i++; }
+        // }
+        //StartCoroutine(AgeSet());
+        SetLayer(i);
+    }
 
+    IEnumerator AgeSet()
+    {
+        if (i == 5) i = 0;
+        SetLayer(i);
+        yield return new WaitForSeconds(5);
+        i++;
+    }
 
     private static void SetLayer(int index)
     {
-        //animator.SetLayerWeight(index, 0);
-        //index += 1;
+        animator.SetLayerWeight(index, 0);
+        index += 1;
         animator.SetLayerWeight(index, CURRENT_LAYER_WEIGHT);
     }
     public static void AgeSwitcher()
@@ -52,5 +70,6 @@ public class AnimationAgeSet : MonoBehaviour
             SetLayer(5);
         }
         */
+        
     }
 }

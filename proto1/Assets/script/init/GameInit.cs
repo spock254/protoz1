@@ -8,7 +8,7 @@ public class GameInit : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
-        Screen.SetResolution(1024, 768, false);
+        Screen.SetResolution(1024, 768, true);
     }
 
     // Update is called once per frame
