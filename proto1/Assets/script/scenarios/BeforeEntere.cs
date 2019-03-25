@@ -7,7 +7,7 @@ public class BeforeEntere : MonoBehaviour
     public float timeLeft;
     public Color targetColor;
     Camera mainCamera;
-
+    public SpriteRenderer doorBGrender;
     
     public BoxCollider2D[] boxCollider2Ds;
     bool isCollidersEnabled = false;
@@ -28,7 +28,8 @@ public class BeforeEntere : MonoBehaviour
             // transition in progress
             // calculate interpolated color
             mainCamera.backgroundColor = Color.Lerp(mainCamera.backgroundColor, targetColor, Time.deltaTime / timeLeft);
-
+            doorBGrender.color = Color.Lerp(mainCamera.backgroundColor, targetColor, Time.deltaTime / timeLeft);
+            
             // update the timer
             timeLeft -= Time.deltaTime;
         }

@@ -12,7 +12,7 @@ public class BaseDialog : MonoBehaviour
     protected bool dialog_over = false;
     protected int currentDialogState;
 
-    private void Start()
+    protected void Start()
     {
         container_NPC = GameObject.FindGameObjectWithTag("dialog_window");
         text_NPC = GameObject.FindGameObjectWithTag("dialog_text").GetComponent<Text>();

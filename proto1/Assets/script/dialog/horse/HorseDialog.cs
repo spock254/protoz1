@@ -6,6 +6,17 @@ using UnityEngine.UI;
 
 public class HorseDialog : BaseDialog
 {
+    //test
+    CameraController cameraController;
+    GameObject player_target;
+
+    private void Start()
+    {
+        base.Start();
+        cameraController = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraController>();
+        player_target = GameObject.FindGameObjectWithTag("Player");
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -18,6 +29,8 @@ public class HorseDialog : BaseDialog
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        cameraController.target = this.gameObject;
+
         if (currentDialogState != HorseState.GET_STATE())
         {
             dialog_over = false;
@@ -28,5 +41,9 @@ public class HorseDialog : BaseDialog
             Begin();
             
         }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        cameraController.target = player_target;
     }
 }
