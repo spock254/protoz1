@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: 200
   prefab: {fileID: 1785138110, guid: 7c52d18c146cf8043b59dd14ffb304c3, type: 3}
   name: stone
-  icon: {fileID: 21300000, guid: 48bee340d46553b4d8d5fbaf31ad27dc, type: 3}
+  icon: {fileID: 21300000, guid: 3ee04ceb05556014984f5cfa5767a2fa, type: 3}
   showInInventory: 1
   isDropable: 1
-  pickTimeID: 0
+  pickTimeID: 191317337

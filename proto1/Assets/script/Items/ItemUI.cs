@@ -37,7 +37,7 @@ public class ItemUI : MonoBehaviour
             }
             else if (!standItem.isItemAdded  && standItem.inner_item != null)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     FillAndEnable(UIContent.NO_SPACE_IN_INV);
                     isItemAlreadyAdded = false;
@@ -46,7 +46,7 @@ public class ItemUI : MonoBehaviour
             }
             else if (!standItem.isItemAdded && !isItemAlreadyAdded && standItem.inner_item == null)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     FillAndEnable(standItem.name + UIContent.INV_IS_EMPTY);
                     isOpening = true;
@@ -55,7 +55,7 @@ public class ItemUI : MonoBehaviour
             }
             else if (isItemAlreadyAdded)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     isOpening = true;
                     FillAndEnable(standItem.name + UIContent.INV_IS_EMPTY);

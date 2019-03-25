@@ -73,6 +73,7 @@ public class PlayerGeneration : MonoBehaviour
             AnimController(moveX, moveY);
             AnimSet();
         }
+        else IdleAnim();
 
     }
     void RandomizePlayerPart(List<GameObject> contents,GameObject container,GameObject current_part,List<Color> colors)
