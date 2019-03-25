@@ -4,9 +4,9 @@ using UnityEngine;
 
 public static class UIContent
 {
-    public readonly static string ACTION_BUTTON_CONTENT_USE_DROP = "E - use / X - drop";
+    public readonly static string ACTION_BUTTON_CONTENT_USE_DROP = "E - use / Q - drop";
     public readonly static string ACTION_BUTTON_CONTENT_USE = "E - use";
-    public readonly static string ACTION_BUTTON_CONTENT_DROP = "X - drop";
+    public readonly static string ACTION_BUTTON_CONTENT_DROP = "Q - drop";
 
     public readonly static string ITEM_RECIVE = "Вы полуили ";
     public readonly static string NO_SPACE_IN_INV = "недостаточно места в инвенторе";

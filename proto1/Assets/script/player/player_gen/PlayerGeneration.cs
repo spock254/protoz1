@@ -74,19 +74,6 @@ public class PlayerGeneration : MonoBehaviour
             AnimSet();
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            int index = Random.Range(0, player_heads.Count);
-            int color_skin_index = Random.Range(0, skin_colors.Count);
-
-            RandomizePlayerPart(player_heads_bg, head_bg_container, head_bg, index, color_skin_index); // head bg
-            RandomizePlayerPart(player_heads, head_container, head, index, hair_colors); // head
-            RandomizePlayerPart(player_body, body_conainer, body, body_colors); // body
-            RandomizePlayerPart(player_lags, lags_container, lags, lags_colors); // lags
-            RandomizePlayerPart(player_hands_left, hands_container, hands_left, color_skin_index); // hand left
-            RandomizePlayerPart(player_hands_right, hands_container, hands_right, color_skin_index); // hand right
-
-        }
     }
     void RandomizePlayerPart(List<GameObject> contents,GameObject container,GameObject current_part,List<Color> colors)
     {

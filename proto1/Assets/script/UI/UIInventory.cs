@@ -25,7 +25,7 @@ public class UIInventory : MonoBehaviour
     public GameObject selectedObject;
     //public int currentSlot = 0;
     private bool buttonSelected;
-    private bool inventoryActive = false;
+    public static bool inventoryActive = false;
 
     public Text actionButtonsText;
 
@@ -69,7 +69,7 @@ public class UIInventory : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) || Input.GetKeyDown(KeyCode.Tab))
         {
             inventoryActive = !inventoryActive;
             inventory_container.SetActive(inventoryActive);
@@ -98,7 +98,7 @@ public class UIInventory : MonoBehaviour
                 eventSystem.SetSelectedGameObject(selectedObject);
                 item_name.text = "";
             }
-            else if (Input.GetKeyDown(KeyCode.X))
+            else if (Input.GetKeyDown(KeyCode.Q))
             {
                 Inventory.instance.items[current_tem_index].Drop();
                 DeleteWhenItemUsed(current_tem_index);
@@ -118,7 +118,7 @@ public class UIInventory : MonoBehaviour
         else if (actionButtonsText.text.Equals(UIContent.ACTION_BUTTON_CONTENT_DROP))
         {
             item_name.text = Inventory.instance.items[current_tem_index].name;
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKeyDown(KeyCode.Q))
             {
                 Inventory.instance.items[current_tem_index].Drop();
                 DeleteWhenItemUsed(current_tem_index);

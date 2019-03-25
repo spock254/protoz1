@@ -11,7 +11,7 @@ public class ItemPickup : Interactable
     public override void Interact()
     {
         base.Interact();
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Space) && !UIInventory.inventoryActive)
         {
             isPickedUp = true;
             PickUp();
