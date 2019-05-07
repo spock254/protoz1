@@ -47,7 +47,8 @@ public class BaseDialog : MonoBehaviour
 
             container_NPC.SetActive(true);
             //text_NPC.text = data.comments[data.commentIndex];
-            StartCoroutine(AnimateText(data.comments[data.commentIndex]));
+            //StartCoroutine(AnimateText(data.comments[data.commentIndex])); // anim dialog
+            text_NPC.text = data.comments[data.commentIndex];
             //image_NPC.sprite = data.sprites[data.commentIndex];
 
 
@@ -81,7 +82,7 @@ public class BaseDialog : MonoBehaviour
         if (container_NPC != null)
             End(null);
     }
-    IEnumerator AnimateText(string strComplete)
+   /* IEnumerator AnimateText(string strComplete)
     {
         int i = 0;
         text_NPC.text = "";
@@ -92,4 +93,5 @@ public class BaseDialog : MonoBehaviour
             yield return new WaitForSeconds(0.03F);
         }
     }
+    */
 }
