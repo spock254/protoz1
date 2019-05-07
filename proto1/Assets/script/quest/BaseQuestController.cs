@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseQuestController : MonoBehaviour
 {
-    public NPCMemory npcMemory;
+    public NPCQuestMemory npcMemory;
 
     public List<BaseQuest> quest;
 

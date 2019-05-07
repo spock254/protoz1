@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCMemory : MonoBehaviour
+public class NPCQuestMemory : MonoBehaviour
 {
    // [SerializeField]
     private Dictionary<string, bool> questMemory;
